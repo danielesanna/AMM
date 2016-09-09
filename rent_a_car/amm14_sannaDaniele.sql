@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generato il: Ago 23, 2016 alle 10:35
+-- Generato il: Set 09, 2016 alle 17:37
 -- Versione del server: 5.5.35
 -- Versione PHP: 5.4.6-1ubuntu1.7
 
@@ -38,7 +38,14 @@ CREATE TABLE IF NOT EXISTS `clienti` (
   `username` varchar(128) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dump dei dati per la tabella `clienti`
+--
+
+INSERT INTO `clienti` (`id`, `nome`, `cognome`, `email`, `numerotel`, `via`, `numero_civico`, `citta`, `username`, `password`) VALUES
+(1, 'Fabrizio', 'Frizzi', 'fabrizio@frizzi.it', '3475678910', 'Viale Trieste', 224, 'Cagliari', 'cliente', 'fabrizio');
 
 -- --------------------------------------------------------
 
@@ -78,7 +85,14 @@ CREATE TABLE IF NOT EXISTS `dipendenti` (
   `username` varchar(128) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dump dei dati per la tabella `dipendenti`
+--
+
+INSERT INTO `dipendenti` (`id`, `nome`, `cognome`, `email`, `numerotel`, `via`, `numero_civico`, `citta`, `username`, `password`) VALUES
+(1, 'Daniele', 'Sanna', 'daniele@sanna.it', '3451234567', 'Via San Marino', 7, 'Benetutti', 'dipendente', 'daniele');
 
 -- --------------------------------------------------------
 
@@ -92,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `modelli` (
   `idcostruttore` int(11) DEFAULT NULL,
   `cilindrata` int(11) DEFAULT NULL,
   `potenza` int(11) DEFAULT NULL,
+  `prezzo` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `costruttori_fk` (`idcostruttore`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
@@ -100,11 +115,11 @@ CREATE TABLE IF NOT EXISTS `modelli` (
 -- Dump dei dati per la tabella `modelli`
 --
 
-INSERT INTO `modelli` (`id`, `nomemodello`, `idcostruttore`, `cilindrata`, `potenza`) VALUES
-(1, 'Golf', 1, 1600, 90),
-(2, 'Polo', 1, 1400, 75),
-(3, 'Fiesta', 2, 1200, 60),
-(4, 'Focus', 2, 1600, 120);
+INSERT INTO `modelli` (`id`, `nomemodello`, `idcostruttore`, `cilindrata`, `potenza`, `prezzo`) VALUES
+(1, 'Golf', 1, 1600, 90, 75),
+(2, 'Polo', 1, 1400, 75, 50),
+(3, 'Fiesta', 2, 1200, 60, 50),
+(4, 'Focus', 2, 1600, 120, 50);
 
 -- --------------------------------------------------------
 
@@ -116,12 +131,22 @@ CREATE TABLE IF NOT EXISTS `noleggi` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idauto` int(11) DEFAULT NULL,
   `idcliente` int(11) DEFAULT NULL,
-  `datainizio` datetime DEFAULT NULL,
+  `datainizio` date DEFAULT NULL,
   `datafine` date DEFAULT NULL,
+  `costo` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `auto_fk` (`idauto`),
   KEY `cliente_fk` (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dump dei dati per la tabella `noleggi`
+--
+
+INSERT INTO `noleggi` (`id`, `idauto`, `idcliente`, `datainizio`, `datafine`, `costo`) VALUES
+(3, 4, 1, '2016-08-27', '2016-08-28', 100),
+(4, 2, 1, '2016-09-01', '2016-09-11', 825),
+(5, 4, 1, '2016-11-11', '2016-11-12', 100);
 
 -- --------------------------------------------------------
 
@@ -133,6 +158,7 @@ CREATE TABLE IF NOT EXISTS `veicoli` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idmodello` int(11) DEFAULT NULL,
   `anno` int(11) NOT NULL,
+  `targa` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `modello_fk` (`idmodello`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
@@ -141,14 +167,14 @@ CREATE TABLE IF NOT EXISTS `veicoli` (
 -- Dump dei dati per la tabella `veicoli`
 --
 
-INSERT INTO `veicoli` (`id`, `idmodello`, `anno`) VALUES
-(1, 1, 2016),
-(2, 1, 2016),
-(3, 2, 2016),
-(4, 3, 2016),
-(5, 4, 2016),
-(6, 3, 2016),
-(7, 3, 2016);
+INSERT INTO `veicoli` (`id`, `idmodello`, `anno`, `targa`) VALUES
+(1, 1, 2016, 'AB123CD'),
+(2, 1, 2016, 'CD123AB'),
+(3, 2, 2016, 'AC123BD'),
+(4, 3, 2016, 'AD213BC'),
+(5, 4, 2016, 'AA111AA'),
+(6, 3, 2016, 'AA231AA'),
+(7, 3, 2016, 'BA321AC');
 
 --
 -- Limiti per le tabelle scaricate
