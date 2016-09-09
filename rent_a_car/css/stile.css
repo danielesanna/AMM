@@ -1,0 +1,294 @@
+body {
+    background-image: url('../img/bg.jpg');
+    font: 13px/20px "Open Sans",Arial,sans-serif;
+    width: 1000px;
+    margin: 0px auto;
+}
+
+header {
+    background-color: #b30000;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#header{
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-position: center left;
+    text-align: center;
+    height: 100px;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+#header h1{
+    font-size: 3em;
+    margin: 0px;
+}
+
+#sidebar1{
+    background-color: white;
+    float: left;
+    width: 250px;    
+    font-size: 13px;
+}
+
+#sidebar1 ul{
+    list-style-type: none;
+}
+
+#sidebar1 h2{
+    padding-left: 40px;
+}
+
+
+#content {
+    margin-left: 250px;
+    margin-right: 50px;
+    padding: 10px;
+    padding-left: 50px;
+    min-height: 500px;
+    border-left: 1px solid #1c345a;
+}
+
+#footer{
+    text-align: center;
+    background-color: #b30000;
+    padding: 10px;
+    padding-bottom: 10px;
+    color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+
+#footer a:link, #footer a:visited{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    font-weight: bold;
+}
+
+#page {
+    border: 2px solid #000000;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px;
+    background-color: white;
+}
+
+#clear{
+    clear: both; 
+    width: 0px; 
+    height: 0px;
+}
+
+#htmlval{
+    background-image: url('../img/html.gif');
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding: 20px;
+}
+
+#cssval{
+    background-image: url('../img/css.gif');
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding: 20px;
+}
+
+#top p {
+    float: left;
+    margin: 10px;
+}
+
+#top {
+    height: 20px;
+}
+
+.input-form input[type="submit"], .input-form button {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+label {
+    width: 30%;
+    display: inline-block;
+}
+
+.input-form input{
+    display: inline-block;
+    width: 60%;
+}
+
+.input-form {
+    line-height: 3em;
+}
+
+h2, h3{
+    color: #000000;
+}
+
+.logout a, .logout a:visited {
+    color: white;
+}
+
+a, a:visited {
+    color: #000099;
+}
+
+table {
+    border: 1px solid #b30000;
+    border-collapse: collapse;
+    margin-top:10px;
+    line-height: 1.2em;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+th, td {
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th{
+    background-color: #b30000;
+    color: white;
+    font-weight: bold;
+}
+
+tr.alt-row, tr.alt-row td{
+    background-color: #ff704d;
+}
+
+.input-form select, .input-form label{
+    display: inline-block;
+}
+
+input[type=submit], button{
+    color: #ffffff;
+    background-color: #b30000;
+    height: 2em;
+    font-weight: bold;
+    border-radius: 1em;
+    border: 1px solid #b30000;
+    min-width: 100px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+
+}
+
+input[type=submit]:hover, button:hover{
+    background-color: #ff704d;
+    cursor: pointer;
+}
+
+.btn-group button {
+    display: inline-block;
+}
+
+.btn-group {
+    text-align: center;
+}
+
+div.error {
+    color: red;
+}
+
+div.confirm{
+    color: green;
+}
+
+/*responsive*/
+
+@media only screen and (max-width: 900px){
+    body{
+        font: 13px/15px "Open Sans", Arial, sans-serif;
+    }
+
+    #page{
+        width: 600px;
+        position: absolute;
+        left: 50%;
+        margin: 0px 0px 0px -300px;
+        border: 0px;
+        border-radius: 0px;
+        box-shadow: 0px 0px 0px;
+    }
+
+    header, #footer{
+        margin: 0px;
+        background-color: #000000;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    } 
+
+    #footer{
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    #sidebar1 {
+        display: inline;
+        float: none;
+    }
+
+    #sidebar1 ul{
+        padding-left: 25px;
+        margin: 0px;        
+    }
+    
+    #sidebar1 h2 {
+        padding: 10px 0px 10px 25px;
+    }
+
+    #content {
+        padding: 25px;
+        margin: 0px;
+        border: 0px;
+        font-size: 13px;
+        min-height: 0px;
+    }
+
+    #logo{
+        text-align: center;
+    }
+
+
+    #footer p{
+        text-align: center;
+    }
+
+    footer a:link, footer a:visited{
+        color: white;
+    }
+
+    #htmlval, #cssval{
+        display: none;  
+    }
+
+    div#logo h1 {
+        background-repeat: no-repeat;
+        background-position: center left;
+        vertical-align: middle;
+        line-height: 50px;
+        padding-left: 10px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        color: #ffffff;
+        display: block;
+    }
+
+
+}
